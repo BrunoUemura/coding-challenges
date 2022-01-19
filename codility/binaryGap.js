@@ -9,4 +9,33 @@
  * N is an integer within the range [1..2,147,483,647].
  */
 
-console.log(Number(1041).toString(2));
+/**
+ *
+ * @param {number} num
+ * @return {number}
+ */
+function solution(num) {
+  // Integer && range
+  // 1 00000 1 000 1
+  // Shoul return 5
+
+  let list = [];
+  let result = 0;
+  let isOne = false;
+  const bin = num.toString(2);
+
+  for (let i = 0; i < bin.length; i++) {
+    if (bin[i] > 0) {
+      isOne = true;
+      list.push(result);
+      result = 0;
+    } else {
+      result += 1;
+      isOne = false;
+    }
+  }
+
+  return Math.max(...list);
+}
+
+console.log(solution(32));

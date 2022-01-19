@@ -1,2 +1,3 @@
-# leetcode-problems
-leetcode-problems
+# Coding Challenges
+
+coding-challenges
