@@ -14,28 +14,34 @@
  * @param {number} num
  * @return {number}
  */
+
 function solution(num) {
   // Integer && range
   // 1 00000 1 000 1
   // Shoul return 5
 
+  if (!Number.isInteger(num) || num < 0 || num >= 2147483647) {
+    return 0;
+  }
+
   let list = [];
   let result = 0;
-  let isOne = false;
   const bin = num.toString(2);
 
   for (let i = 0; i < bin.length; i++) {
     if (bin[i] > 0) {
-      isOne = true;
       list.push(result);
       result = 0;
     } else {
       result += 1;
-      isOne = false;
     }
   }
 
   return Math.max(...list);
 }
 
-console.log(solution(32));
+console.log(solution(1041)); // 5
+console.log(solution(9)); // 2
+console.log(solution(529)); // 4
+console.log(solution(15)); // 0
+console.log(solution(20)); // 1
